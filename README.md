@@ -1,99 +1,59 @@
 # Machine Learning Analysis
 
-This repository contains implementations of multiple machine learning approaches,
-progressing from classical methods to neural networks and transformer-based models.
-
-The project demonstrates understanding of:
-
-- Classical Machine Learning (Regression & Classification)
-- Neural Networks (MLP and Time Series models)
-- Transformer Fine-Tuning for NLP
-- Large Language Model Inference for Text Generation
-
+A progression through machine learning from the ground up - classical models, neural networks, and transformer-based NLP. 
 
 ---
 
----
+## What's Inside
 
-## 1. Classical Machine Learning
+### 1. Classical Machine Learning
+**Folder:** `classification_regression/`
 
-Folder: `classification_regression/`
+Regression and classification experiments covering the full workflow: data preprocessing, feature scaling, train-test splitting, and model evaluation. Metrics used include Accuracy and R² depending on the task.
 
-Includes:
-- Classification experiments
-- Regression experiments (multivariate)
-
-Key concepts covered:
-- Data preprocessing
-- Feature scaling
-- Train-test splitting
-- Model evaluation (Accuracy, R², etc.)
-
-Datasets are located in the `datasets/` directory.
+Datasets are in the `datasets/` directory.
 
 ---
 
-## 2. Neural Networks
+### 2. Neural Networks
+**Folder:** `neural_networks/`
 
-Folder: `neural_networks/`
+Two implementations:
 
-Includes:
-- Feedforward neural network for classification
-- Time series forecasting model
+**Feedforward MLP** - multi-layer perceptron for classification, covering layer design, loss functions, and performance evaluation.
 
-Topics covered:
-- Multi-Layer Perceptron (MLP)
-- Sequence creation for time series
-- LSTM-based forecasting 
-- Loss functions
-- Performance evaluation and visualization
+**Time Series Forecasting** - LSTM-based model for sequential prediction, including sequence creation, training, and visualization of results.
 
 ---
 
-## 3. Transformer-Based NLP
+### 3. Transformer-Based NLP
+**Folder:** `transformers/`
 
-Folder: `transformers/`
+#### Sentiment Analysis
+**Subfolder:** `transformers/sentiment_analysis/`
 
-### 3.1 Sentiment Analysis
+A pretrained transformer fine-tuned on drug review data for binary sentiment classification. Uses the Hugging Face Trainer API with accuracy and F1-score evaluation.
 
-Subfolder: `transformers/sentiment_analysis/`
+Pipeline: rating-to-label mapping → tokenization → fine-tuning → evaluation.
 
-A pretrained Transformer model is fine-tuned on drug review data
-to perform binary sentiment classification.
+#### Text Generation
+**Subfolder:** `transformers/text_gen/`
 
-Process:
-- Rating into Sentiment label mapping
-- Tokenization with pretrained tokenizer
-- Fine-tuning using Hugging Face Trainer API
-- Evaluation using Accuracy and F1-score
-
----
-
-### 3.2 Text Generation
-
-Subfolder: `transformers/text_gen/`
-
-An interactive text generation script using a pretrained
-causal language model (Qwen).
-Limited to smaller versions with respect to hardware capabilities.
-
-The script:
-- Accepts user input from the terminal
-- Generates a natural continuation
-- Uses sampling techniques (temperature, top-p, repetition penalty)
-
-Generation parameters control creativity and coherence.
-
-Once started, expected output (with input):
-
-Ready. Type a sentence and press Enter. Type 'q' to quit. 
-
-You: green curtains are much better than
-
-Model: green curtains are much better than blue ones, especially in terms of aesthetic appeal! Green is known for its calming effects that blue lacks due to its ability to absorb some UV rays. While both can create an inviting atmosphere, green offers subtle hints of nature without overpoweeen is known for its calming effects that blue lacks due to its ability to absorb some UV rays. While boring it with too many colors. If you're looking for something elegant but not overwhelming, blue hints of nature without overpowering it with too many colors. If t not overwhelming, blue might be your 
-might be your best choice among these options. Enjoy your space! 
+An interactive terminal script that takes user input and generates a natural continuation using a pretrained causal language model (Qwen). Generation is controlled via temperature, top-p sampling, and repetition penalty to balance creativity and coherence.
 
 ```bash
 python transformer_text_generation.py
+```
 
+```
+Ready. Type a sentence and press Enter. Type 'q' to quit.
+You: green curtains are much better than
+Model: green curtains are much better than blue ones, especially in terms
+of aesthetic appeal. Green is known for its calming effects...
+```
 
+---
+
+## Tech Stack
+
+Python · scikit-learn · PyTorch · Hugging Face Transformers · LSTM · Qwen
